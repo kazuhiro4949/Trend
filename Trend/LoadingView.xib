@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoadingView" customModule="Trend" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VYa-Vm-bmB" customClass="LoadingView" customModule="Trend" customModuleProvider="target">
+                    <rect key="frame" x="260" y="260" width="80" height="80"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6jQ-rp-LJr">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="9WS-66-IcP"/>
+                        <constraint firstAttribute="width" constant="80" id="LYj-0O-rQ6"/>
+                        <constraint firstItem="6jQ-rp-LJr" firstAttribute="top" secondItem="VYa-Vm-bmB" secondAttribute="top" id="R4d-wq-Jen"/>
+                        <constraint firstAttribute="trailing" secondItem="6jQ-rp-LJr" secondAttribute="trailing" id="RzV-0b-jiN"/>
+                        <constraint firstAttribute="bottom" secondItem="6jQ-rp-LJr" secondAttribute="bottom" id="j3d-S2-hPF"/>
+                        <constraint firstItem="6jQ-rp-LJr" firstAttribute="leading" secondItem="VYa-Vm-bmB" secondAttribute="leading" id="rwF-2i-9ea"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="VYa-Vm-bmB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z8A-65-k6Z"/>
+                <constraint firstItem="VYa-Vm-bmB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sBR-Ly-wJx"/>
+            </constraints>
+            <connections>
+                <outlet property="activityIndicatorView" destination="6jQ-rp-LJr" id="D3V-FQ-gjN"/>
+                <outlet property="contentView" destination="VYa-Vm-bmB" id="J4M-ds-kox"/>
+            </connections>
+        </view>
+    </objects>
+</document>
