@@ -14,6 +14,7 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
     var detailViewController: DetailViewController?
     var menuViewController: MenuViewController?
     var pageViewController: UIPageViewController?
+    var contentViewControllers = [UIViewController?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,13 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
             FeedManager.didFetchFeeds,
             object: nil,
             queue: NSOperationQueue.mainQueue()) { [weak self] (notification) in
+                self?.contentViewControllers = [UIViewController?](count: FeedManager.sharedInstance.feeds.count, repeatedValue: nil)
                 let tableVc = self?.storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
                 tableVc.index = 0
+                self?.contentViewControllers[0] = tableVc
                 self?.pageViewController?.setViewControllers([tableVc], direction: .Forward, animated: false) { _ in }
         }
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -66,9 +70,18 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
             return nil
         }
         
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
-        vc.index = prevPageIndex
-        return vc
+        guard prevPageIndex < FeedManager.sharedInstance.feeds.count else {
+            return nil
+        }
+        
+        if let contentViewController = contentViewControllers[prevPageIndex] {
+            return contentViewController
+        } else {
+            let vc = storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
+            vc.index = prevPageIndex
+            contentViewControllers[prevPageIndex] = vc
+            return vc
+        }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
@@ -80,9 +93,19 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
             return nil
         }
         
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
-        vc.index = nextPageIndex
-        return vc
+        
+        guard nextPageIndex < FeedManager.sharedInstance.feeds.count else {
+            return nil
+        }
+        
+        if let contentViewController = contentViewControllers[nextPageIndex] {
+            return contentViewController
+        } else {
+            let vc = storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
+            vc.index = nextPageIndex
+            contentViewControllers[nextPageIndex] = vc
+            return vc
+        }
     }
     
     func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
@@ -106,11 +129,20 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
         }
         
         guard currentIndex != index else { return }
+
+        guard index < FeedManager.sharedInstance.feeds.count else { return }
         
         let direction :UIPageViewControllerNavigationDirection = currentIndex < index ? .Forward : .Reverse
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
-        vc.index = index
-        pageViewController?.setViewControllers([vc], direction: direction, animated: true) { _ in }
+        
+        if let contentViewController = contentViewControllers[index] {
+             pageViewController?.setViewControllers([contentViewController], direction: direction, animated: true) { _ in }
+        } else {
+            let vc = storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
+            vc.index = index
+            contentViewControllers[index] = vc
+            pageViewController?.setViewControllers([vc], direction: direction, animated: true) { _ in }
+        }
+
     }
     
     @IBAction func unwind(segue: UIStoryboardSegue) {

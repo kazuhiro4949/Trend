@@ -18,21 +18,18 @@ class RepositoryTableViewController: UITableViewController {
     var delegate: RepositoryTableViewControllerDelegate?
     var loadingView: LoadingView?
     
-    var dataSource: Feed? {
-        return index.flatMap {
-            if $0 < FeedManager.sharedInstance.feeds.count {
-                return FeedManager.sharedInstance.feeds[$0]
-            } else {
-                return nil
-            }
-        }
-    }
+    var dataSource: Feed?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 60
+//        tableView.rowHeight = UITableViewAutomaticDimension
+        
+        if let index = index where index < FeedManager.sharedInstance.feeds.count {
+            dataSource = FeedManager.sharedInstance.feeds[index]
+        }
 
+        tableView.rowHeight = 60
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlStateChanged:", forControlEvents: .ValueChanged)
         self.refreshControl = refreshControl
@@ -42,8 +39,7 @@ class RepositoryTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         if let items = dataSource?.items where items.isEmpty {
             dataSource?.fetch(.Daily) { [weak self] (items) in
-//                self?.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-                self?.tableView.reloadData()
+                self?.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
             }
         }
     }
