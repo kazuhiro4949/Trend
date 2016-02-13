@@ -16,19 +16,19 @@ class RepositoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        containerView.layer.masksToBounds = false
-        containerView.layer.shadowOffset = CGSizeMake(0, 1)
-        containerView.layer.shadowRadius = 1
-        containerView.layer.shadowOpacity = 0.1
-
-        containerView.layer.shouldRasterize = true
-        containerView.layer.rasterizationScale = UIScreen.mainScreen().scale
+//        containerView.layer.masksToBounds = false
+//        containerView.layer.shadowOffset = CGSizeMake(0, 1)
+//        containerView.layer.shadowRadius = 1
+//        containerView.layer.shadowOpacity = 0.1
+//
+//        containerView.layer.shouldRasterize = true
+//        containerView.layer.rasterizationScale = UIScreen.mainScreen().scale
 
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).CGPath
+//        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).CGPath
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
