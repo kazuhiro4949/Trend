@@ -29,6 +29,20 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
                 self?.pageViewController?.setViewControllers([tableVc], direction: .Forward, animated: false) { _ in }
         }
         
+        NSNotificationCenter.defaultCenter().addObserverForName(
+            FeedManager.didActivateLanaguages,
+            object: nil,
+            queue: NSOperationQueue.mainQueue()) { [weak self] (notification) in
+                self?.contentViewControllers = [UIViewController?](count: FeedManager.sharedInstance.feeds.count, repeatedValue: nil)
+                let tableVc = self?.storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
+                tableVc.index = 0
+                self?.contentViewControllers[0] = tableVc
+                self?.pageViewController?.setViewControllers([tableVc], direction: .Forward, animated: false) { _ in }
+                
+                self?.menuViewController?.collectionView?.reloadData()
+                self?.menuViewController?.selectMenu(at: 0, animated: true)
+        }
+        
     }
 
     override func viewWillAppear(animated: Bool) {

@@ -33,10 +33,17 @@ class LanguageTableTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LanguageTableTableViewCell", forIndexPath: indexPath)
-        cell.textLabel?.text = FeedManager.sharedInstance.totalInternalFeeds[indexPath.row].language.displayName
+        let language = FeedManager.sharedInstance.totalInternalFeeds[indexPath.row].language
+        cell.textLabel?.text = language.displayName
+        cell.accessoryType = language.active ? .Checkmark : .None
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        FeedManager.sharedInstance.activate(indexPath.row)
+        tableView.reloadData()
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

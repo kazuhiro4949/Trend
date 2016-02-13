@@ -32,6 +32,7 @@ class ModalDrawBackDismissAnimator: NSObject, UIViewControllerAnimatedTransition
         }) { (finished) -> Void in
             maskView.removeFromSuperview()
             transitionContext.completeTransition(true)
+            
         }
     }
 }

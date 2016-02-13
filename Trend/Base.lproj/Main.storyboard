@@ -162,6 +162,24 @@
             </objects>
             <point key="canvasLocation" x="1574" y="-834"/>
         </scene>
+        <!--Content View Controller-->
+        <scene sceneID="c9w-hn-WEl">
+            <objects>
+                <viewController id="SPR-Ph-qxV" customClass="ContentViewController" customModule="Trend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="87y-ST-nJA"/>
+                        <viewControllerLayoutGuide type="bottom" id="0XQ-bJ-nfq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zdh-LT-BkF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JK1-Z4-a3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2258" y="-838"/>
+        </scene>
         <!--Repository Table View Controller-->
         <scene sceneID="q5I-Fh-VZk">
             <objects>
@@ -250,7 +268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RVT-qF-ryw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2241" y="-831"/>
+            <point key="canvasLocation" x="2946" y="-838"/>
         </scene>
         <!--Web View Controller-->
         <scene sceneID="oTg-jI-LMY">
@@ -337,6 +355,7 @@
                         <outlet property="forwardButton" destination="Pqx-tQ-Fu0" id="CoQ-WM-3ns"/>
                         <outlet property="progressView" destination="w6O-2A-0DM" id="dEE-fr-fCU"/>
                         <outlet property="reloadButton" destination="pOf-kF-Gzw" id="6gx-wS-dEs"/>
+                        <outlet property="toolbar" destination="MoB-bT-BFf" id="2LT-OD-hnc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIt-77-8f3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -446,7 +465,7 @@
                                             <rect key="frame" x="15" y="0.0" width="546" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

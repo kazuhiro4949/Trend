@@ -10,6 +10,7 @@ import Foundation
 
 class FeedManager {
     static let didFetchFeeds = "kazuhiro.hayash.Trend.didFetchFeed"
+    static let didActivateLanaguages = "kazuhiro.hayash.Trend.didUpdateLanaguages"
     
     static let sharedInstance = FeedManager()
     
@@ -30,5 +31,15 @@ class FeedManager {
                 NSNotificationCenter.defaultCenter().postNotificationName(FeedManager.didFetchFeeds, object: self, userInfo: nil)
             })
         }
+    }
+    
+    func activate(index: Int) {
+        totalInternalFeeds[index].language.active = !totalInternalFeeds[index].language.active
+        if totalInternalFeeds[index].language.active == false {
+           totalInternalFeeds[index].items = []
+        }
+        
+        feeds = totalInternalFeeds.filter { $0.language.active == true }
+        NSNotificationCenter.defaultCenter().postNotificationName(FeedManager.didActivateLanaguages, object: self, userInfo: nil)
     }
 }

@@ -8,47 +8,55 @@
 
 import UIKit
 
-protocol RepositoryTableViewControllerDelegate: class {
-    func repositoryTableViewController(viewController: RepositoryTableViewController, didSelectRowAtIndexPath indexPath: NSIndexPath)
-}
-
 class RepositoryTableViewController: UITableViewController {
 
     var index: Int?
-    var delegate: RepositoryTableViewControllerDelegate?
     var loadingView: LoadingView?
     
     var dataSource: Feed?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        tableView.estimatedRowHeight = 60
-//        tableView.rowHeight = UITableViewAutomaticDimension
-        
+        tableView.estimatedRowHeight = 60
+        tableView.rowHeight = UITableViewAutomaticDimension
+
         if let index = index where index < FeedManager.sharedInstance.feeds.count {
             dataSource = FeedManager.sharedInstance.feeds[index]
         }
 
-        tableView.rowHeight = 60
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshControlStateChanged:", forControlEvents: .ValueChanged)
         self.refreshControl = refreshControl
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        adjustInset()
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if let items = dataSource?.items where items.isEmpty {
             dataSource?.fetch(.Daily) { [weak self] (items) in
+                self?.adjustInset()
                 self?.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
             }
+        } else {
+            adjustInset()
         }
+    }
+    
+    func adjustInset() {
+        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length + 44, 0, 4, 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(topLayoutGuide.length + 44, 0, 0, 0)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        tableView.contentInset = UIEdgeInsetsMake(self.topLayoutGuide.length + 44, 0, 4, 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(self.topLayoutGuide.length + 44, 0, 0, 0)
+
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,13 +84,21 @@ class RepositoryTableViewController: UITableViewController {
         guard let item = dataSource?.items[indexPath.row] else { return }
         
         showDetailViewController(WebViewController.instantiate(item), sender: self)
-        delegate?.repositoryTableViewController(self, didSelectRowAtIndexPath: indexPath)
     }
 
     func refreshControlStateChanged(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
         dataSource?.fetch(.Daily) { [weak self] (items) in
             self?.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animateAlongsideTransition({ [weak self] (context) -> Void in
+            self?.tableView.contentInset = UIEdgeInsetsMake((self?.topLayoutGuide.length ?? 0) + 44, 0, 4, 0)
+            self?.tableView.scrollIndicatorInsets = UIEdgeInsetsMake((self?.topLayoutGuide.length ?? 0) + 44, 0, 0, 0)
+            }) { (context) -> Void in
+                
         }
     }
     

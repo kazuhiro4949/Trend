@@ -21,6 +21,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
+    @IBOutlet weak var toolbar: UIToolbar!
+    
     let webView = { () -> WKWebView in
         let webView = WKWebView()
         webView.allowsBackForwardNavigationGestures = true
@@ -57,13 +59,14 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         
         navigationController?.navigationBar.topItem?.title = "Trend"
 
+        addressBarView.translatesAutoresizingMaskIntoConstraints = true
+        addressBarView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addressBarView.layer.cornerRadius = 5
         
         addressBarView.layer.masksToBounds = true
         addressBarView.layer.shadowOffset = CGSizeMake(0, 0.5)
         addressBarView.layer.shadowRadius = 0.5
         addressBarView.layer.shadowOpacity = 0.3
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -178,6 +181,26 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         favoriteButton.setBackButtonBackgroundImage(UIImage(named: "StarDeactive"), forState: .Normal, barMetrics: .Default)
         
     }
+    
+    override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animateAlongsideTransition({ (context) -> Void in
+//            self.toolBar.layoutIfNeeded()
+            }) { (context) -> Void in
+                
+        }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        
+        
+        
+        coordinator.animateAlongsideTransition({ (context) -> Void in
+            self.toolbar.frame.size.height = self.navigationController?.navigationBar.frame.height ?? 0
+            }) { (context) -> Void in
+                
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
