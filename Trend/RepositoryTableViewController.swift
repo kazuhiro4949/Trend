@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryTableViewController: UITableViewController {
+class RepositoryTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     var index: Int?
     var loadingView: LoadingView?
@@ -82,8 +82,9 @@ class RepositoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         guard let item = dataSource?.items[indexPath.row] else { return }
-        
-        showDetailViewController(WebViewController.instantiate(item), sender: self)
+        let vc = WebViewController.instantiate(item)
+        let nvc = UINavigationController(rootViewController: vc)
+        showDetailViewController(nvc, sender: self)
     }
 
     func refreshControlStateChanged(refreshControl: UIRefreshControl) {
@@ -137,14 +138,7 @@ class RepositoryTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

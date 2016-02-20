@@ -330,8 +330,8 @@
                             <rect key="frame" x="20" y="8" width="524" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="WI7-oa-yHw">
-                                    <rect key="frame" x="10" y="7" width="504" height="14.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="WI7-oa-yHw">
+                                    <rect key="frame" x="190" y="7" width="324" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -356,6 +356,7 @@
                         <outlet property="progressView" destination="w6O-2A-0DM" id="dEE-fr-fCU"/>
                         <outlet property="reloadButton" destination="pOf-kF-Gzw" id="6gx-wS-dEs"/>
                         <outlet property="toolbar" destination="MoB-bT-BFf" id="2LT-OD-hnc"/>
+                        <outlet property="toolbarBottomConstraint" destination="FCf-rx-Vdj" id="Nl9-vn-NMC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIt-77-8f3" userLabel="First Responder" sceneMemberID="firstResponder"/>

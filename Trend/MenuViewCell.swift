@@ -35,13 +35,14 @@ class MenuViewCell: UICollectionViewCell {
     func focusCell(active: Bool, animated: Bool) {
         focusViewHeightConstraint.constant = active ? 3.0 : 0.0
         let color = active ? nameLabel.tintColor : UIColor.darkGrayColor()
-        nameLabel.textColor = color
         guard animated else { return }
         
+        layer.removeAllAnimations()
         UIView.animateWithDuration(
-            0.2,
-            animations: {
-                self.layoutIfNeeded()
+            0.5,
+            animations: { [weak self] in
+                self?.nameLabel.textColor = color
+                self?.layoutIfNeeded()
             },
             completion: { (finish) in
                 

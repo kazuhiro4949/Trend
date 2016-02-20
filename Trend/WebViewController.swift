@@ -23,6 +23,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     
     @IBOutlet weak var toolbar: UIToolbar!
     
+    @IBOutlet weak var toolbarBottomConstraint: NSLayoutConstraint!
+    
+    
     let webView = { () -> WKWebView in
         let webView = WKWebView()
         webView.allowsBackForwardNavigationGestures = true
@@ -54,7 +57,10 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         webView.addObserver(self, forKeyPath: "canGoBack", options: .New, context: nil)
         webView.addObserver(self, forKeyPath: "canGoForward", options: .New, context: nil)
 
-        domainLabel.text = (url?.scheme ?? "") + "://" + (url?.host ?? "") + (url?.path ?? "")
+        let scheme = (url?.scheme ?? "")
+        let host = (url?.host ?? "")
+        let path = (url?.path ?? "")
+        domainLabel.text = scheme + "://" + host + path
         webView.loadRequest(NSURLRequest(URL: url!))
         
         navigationController?.navigationBar.topItem?.title = "Trend"
@@ -67,6 +73,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         addressBarView.layer.shadowOffset = CGSizeMake(0, 0.5)
         addressBarView.layer.shadowRadius = 0.5
         addressBarView.layer.shadowOpacity = 0.3
+        
+       
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -91,16 +100,78 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         let activityVc = UIActivityViewController(activityItems: [activityItem], applicationActivities: [OpenSafariActivity()])
         presentViewController(activityVc, animated: true, completion: nil)
     }
-
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let transition = scrollView.panGestureRecognizer.translationInView(scrollView)        
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         
-        if transition.y > 0 {
+    }
+    
+    enum Mode {
+        case FullScreen
+        case Navigation
+        case Transition
+    }
+    var mode = Mode.Navigation
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        let transition = scrollView.panGestureRecognizer.translationInView(scrollView)
+        
+        switch mode {
+        case .Navigation:
+            let nextBottomConstraint: CGFloat
+            if 0 < transition.y {
+                nextBottomConstraint = 0
+            } else if  toolbarBottomConstraint.constant < -toolbar.frame.height {
+                nextBottomConstraint = -toolbar.frame.height
+            } else {
+                nextBottomConstraint = transition.y
+            }
             
-        } else if transition.y < 0 {
-            
+            toolbarBottomConstraint.constant = nextBottomConstraint
+        case .FullScreen:
+            break
+        case .Transition:
+            break
         }
-//        scrollView.panGestureRecognizer.setTranslation(CGPointZero, inView: scrollView)
+
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        
+        switch mode {
+        case .Navigation:
+            let nextMode: Mode
+            if toolbarBottomConstraint.constant < 0 {
+                toolbarBottomConstraint.constant = -toolbar.bounds.height
+                nextMode = .FullScreen
+            } else {
+                toolbarBottomConstraint.constant = 0
+                nextMode = .Navigation
+            }
+            
+            mode = .Transition
+            toolbar.layer.removeAllAnimations()
+            UIView.animateWithDuration(0.3, animations: { [weak self] in
+                self?.toolbar.layoutIfNeeded()
+            }) { (_) in
+                self.mode = nextMode
+            }
+        case .FullScreen:
+            let velocity = scrollView.panGestureRecognizer.velocityInView(scrollView)
+            if 1000 < velocity.y {
+                mode = .Transition
+                toolbarBottomConstraint.constant = 0
+                toolbar.layer.removeAllAnimations()
+                UIView.animateWithDuration(0.3, animations: { [weak self] in
+                    self?.toolbar.layoutIfNeeded()
+                    }, completion: { [weak self] (finish) in
+                        self?.mode = .Navigation
+                    })
+            }
+        case .Transition:
+            break
+        }
     }
     
     func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
@@ -141,7 +212,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if keyPath == "estimatedProgress"  {
-            webView.layer.removeAllAnimations()
             if webView.estimatedProgress == 1.0 {
                 UIView.animateWithDuration(
                     0.5,
@@ -155,7 +225,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
                 self.progressView.alpha = 1.0
             }
             let progress = Float(webView.estimatedProgress)
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+            UIView.animateWithDuration(1.0, animations: { () -> Void in
                 self.progressView.progress = progress
             })
         } else if keyPath == "canGoBack" {
