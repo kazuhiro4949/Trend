@@ -34,9 +34,10 @@
 		6E99C9971C65C251002E489B /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E99C9961C65C251002E489B /* FeedManager.swift */; };
 		6E99C9991C65C26C002E489B /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E99C9981C65C26C002E489B /* Language.swift */; };
 		6E99C99B1C65CD3C002E489B /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E99C99A1C65CD3C002E489B /* Regex.swift */; };
+		6EAA05941C7988C00034ED36 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA05931C7988C00034ED36 /* Favorite.swift */; };
 		6EC9EC061C6741570060387B /* ModalDrawBackAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9EC051C6741570060387B /* ModalDrawBackAnimator.swift */; };
 		6EC9EC081C67415F0060387B /* ModalDrawBackDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9EC071C67415F0060387B /* ModalDrawBackDismissAnimator.swift */; };
-		C51C7DEDCF9199A59D127606 /* Pods_Trend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6FD214CE2FF627D4A44AAF /* Pods_Trend.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C51C7DEDCF9199A59D127606 /* Pods_Trend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6FD214CE2FF627D4A44AAF /* Pods_Trend.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		6E99C9961C65C251002E489B /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		6E99C9981C65C26C002E489B /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		6E99C99A1C65CD3C002E489B /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		6EAA05931C7988C00034ED36 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		6EC9EC051C6741570060387B /* ModalDrawBackAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDrawBackAnimator.swift; sourceTree = "<group>"; };
 		6EC9EC071C67415F0060387B /* ModalDrawBackDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDrawBackDismissAnimator.swift; sourceTree = "<group>"; };
 		BD6FD214CE2FF627D4A44AAF /* Pods_Trend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 				6E99C9941C65C24A002E489B /* Feed.swift */,
 				6E99C9961C65C251002E489B /* FeedManager.swift */,
 				6E99C9981C65C26C002E489B /* Language.swift */,
+				6EAA05931C7988C00034ED36 /* Favorite.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				6E99C9971C65C251002E489B /* FeedManager.swift in Sources */,
 				6E086C7F1C6F43A700E70EAE /* ContentViewController.swift in Sources */,
 				6E360EC91C5F9C7B009FA29A /* DetailViewController.swift in Sources */,
+				6EAA05941C7988C00034ED36 /* Favorite.swift in Sources */,
 				6E99C9951C65C24A002E489B /* Feed.swift in Sources */,
 				6E360EF81C5F9D14009FA29A /* MenuViewController.swift in Sources */,
 				6E360EF71C5F9D14009FA29A /* MenuViewCell.swift in Sources */,
@@ -502,7 +506,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuhiro Hayashi (R33Y42SDDR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kazuhiro Hayashi (R33Y42SDDR)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -547,7 +552,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuhiro Hayashi (R33Y42SDDR)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Kazuhiro Hayashi (R33Y42SDDR)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -574,13 +580,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuhiro Hayashi (R33Y42SDDR)";
 				INFOPLIST_FILE = Trend/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kazuhiro.hayashi.Trend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0d778576-66a5-408c-af52-8f185a2f3192";
 				SWIFT_OBJC_BRIDGING_HEADER = "Trend/Trend-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -590,12 +599,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Kazuhiro Hayashi (R33Y42SDDR)";
 				INFOPLIST_FILE = Trend/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kazuhiro.hayashi.Trend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0d778576-66a5-408c-af52-8f185a2f3192";
 				SWIFT_OBJC_BRIDGING_HEADER = "Trend/Trend-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

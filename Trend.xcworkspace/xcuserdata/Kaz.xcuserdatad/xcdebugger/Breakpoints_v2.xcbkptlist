@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trend/ContentViewController.swift"
-            timestampString = "476981020.424555"
+            timestampString = "477055101.809883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41">
+            startingLineNumber = "66"
+            endingLineNumber = "66">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

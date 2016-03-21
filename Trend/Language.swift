@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 enum TrendPeriod: String {
     case Daily = "daily"
@@ -16,10 +17,10 @@ enum TrendPeriod: String {
     case Monthly = "monthly"
 }
 
-struct Language {
-    let displayName: String
-    let identifier: String
-    var active: Bool
+class Language: Object {
+    dynamic var displayName: String = ""
+    dynamic var identifier: String = ""
+    dynamic var active: Bool = false
     
     func feedURL(type: TrendPeriod) -> String {
         return "http://github-trends.ryotarai.info/rss/github_trends_\(identifier)_\(type.rawValue).rss"
@@ -28,6 +29,14 @@ struct Language {
     init(displayName: String, identifier: String) {
         self.displayName = displayName
         self.identifier = identifier
-        active = false
+        super.init()
+    }
+
+    required init() {
+        super.init()
+    }
+
+    override static func primaryKey() -> String? {
+        return "identifier"
     }
 }

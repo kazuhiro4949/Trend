@@ -7,6 +7,10 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
+
+import RealmSwift
 
 class FeedManager {
     static let didFetchFeeds = "kazuhiro.hayash.Trend.didFetchFeed"
@@ -18,7 +22,7 @@ class FeedManager {
     var totalInternalFeeds = [Feed]()
     
     func fetch(completion: ([Feed]) -> Void) {
-        Feed.fetch { [weak self] (feeds) in
+        request { [weak self] (feeds) in
             dispatch_async(dispatch_get_main_queue(), {
                 
                 self?.totalInternalFeeds = feeds
@@ -42,4 +46,32 @@ class FeedManager {
         feeds = totalInternalFeeds.filter { $0.language.active == true }
         NSNotificationCenter.defaultCenter().postNotificationName(FeedManager.didActivateLanaguages, object: self, userInfo: nil)
     }
+    
+    private func request(completion: ([Feed]) -> Void) {
+        
+        NetworkActivityIndicatorManager.sharedInstance.increment()
+        Alamofire.request(.GET, "http://github-trends.ryotarai.info/js/languages.js").responseString { (response) in
+            NetworkActivityIndicatorManager.sharedInstance.decrement()
+            switch response.result {
+            case .Success(let str):
+                if  let json = Regex("\\{.+\\}").matches(str)?.first?.stringByReplacingOccurrencesOfString("\'", withString: "\""),
+                    let dict = JSON.parse(json).dictionary,
+                    let orderJson = Regex("\\[.+\\]").matches(str)?.first?.stringByReplacingOccurrencesOfString("\'", withString: "\""),
+                    let order = JSON.parse(orderJson).array?.flatMap({ $0.string }) {
+                        let feeds = order.reduce([Feed]()) { (sum, lang) in
+                            if let feed = dict[lang]?.string.map({ Feed(language: Language(displayName: $0, identifier: lang), items: []) }) {
+                                return sum + [feed]
+                            } else {
+                                return sum
+                            }
+                        }
+                        
+                        completion(feeds)
+                }
+            case .Failure(_):
+                completion([])
+            }
+        }
+    }
+    
 }

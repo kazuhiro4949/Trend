@@ -1,19 +1,27 @@
 PODS:
   - Alamofire (3.0.0)
   - Himotoki (1.4.0)
+  - Realm (0.98.2):
+    - Realm/Headers (= 0.98.2)
+  - Realm/Headers (0.98.2)
+  - RealmSwift (0.98.2):
+    - Realm (= 0.98.2)
   - SwiftyJSON (2.3.2)
   - SWXMLHash (2.1.0)
 
 DEPENDENCIES:
-  - Alamofire (= 3.0)
+  - Alamofire
   - Himotoki (~> 1.3)
+  - RealmSwift
   - SwiftyJSON
   - SWXMLHash (~> 2.1.0)
 
 SPEC CHECKSUMS:
   Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
   Himotoki: e342361bf39e8db8fc1d80cba5644d40ff01324e
+  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
+  RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   SWXMLHash: 7257a358b3ab2f7a209e0b4e4cf552e8b6df5f0f
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

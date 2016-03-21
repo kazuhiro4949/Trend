@@ -54,7 +54,6 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
     }
 
     

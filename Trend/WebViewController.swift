@@ -19,7 +19,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
-    @IBOutlet weak var favoriteButton: UIBarButtonItem!
+//    @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     @IBOutlet weak var toolbar: UIToolbar!
     
@@ -41,7 +41,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = item.flatMap { NSURL(string: $0.link) }
+        guard let item = item else { return }
+        
+        let url = NSURL(string: item.link)
         view.insertSubview(webView, atIndex: 0)
         view.addConstraints([
             NSLayoutConstraint(item: view, attribute: .Width, relatedBy: .Equal, toItem: webView, attribute: .Width, multiplier: 1, constant: 0),
@@ -74,7 +76,14 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         addressBarView.layer.shadowRadius = 0.5
         addressBarView.layer.shadowOpacity = 0.3
         
-       
+//        switch FavoriteService(item: item).checkState() {
+//        case .Fav:
+//            favoriteButton.image = UIImage(named: "StarActive")
+//
+//        case .NotFav:
+//            favoriteButton.image = UIImage(named: "StarDeactive")
+//
+//        }
         
     }
     
@@ -247,10 +256,16 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         webView.reload()
     }
     
-    @IBAction func handleTapFavoriteButton(sender: UIBarButtonItem) {
-        favoriteButton.setBackButtonBackgroundImage(UIImage(named: "StarDeactive"), forState: .Normal, barMetrics: .Default)
-        
-    }
+//    @IBAction func handleTapFavoriteButton(sender: UIBarButtonItem) {
+//        guard let item = item else { return }
+//
+//        switch FavoriteService(item: item).changeState() {
+//        case .Fav:
+//            favoriteButton.image = UIImage(named: "StarActive")
+//        case .NotFav:
+//            favoriteButton.image = UIImage(named: "StarDeactive")
+//        }
+//    }
     
     override func willTransitionToTraitCollection(newCollection: UITraitCollection, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animateAlongsideTransition({ (context) -> Void in

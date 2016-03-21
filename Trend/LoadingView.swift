@@ -38,7 +38,7 @@ class LoadingView: UIView {
         replicatorLayer.instanceCount = 4
         replicatorLayer.instanceTransform = CATransform3DMakeTranslation(20, 0, 0)
         
-        let animation = CABasicAnimation(keyPath: "position.y")
+        _ = CABasicAnimation(keyPath: "position.y")
     }
 
 }

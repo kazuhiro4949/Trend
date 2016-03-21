@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -300,15 +300,10 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="88w-6z-W6c"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7Kg-wM-Oiw"/>
                                     <barButtonItem enabled="NO" systemItem="refresh" id="pOf-kF-Gzw">
                                         <connections>
                                             <action selector="handleTapReloadButton:" destination="fn3-mY-T27" id="Few-jA-WCC"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7Kg-wM-Oiw"/>
-                                    <barButtonItem image="StarDeactive" id="urG-UW-sAl">
-                                        <connections>
-                                            <action selector="handleTapFavoriteButton:" destination="fn3-mY-T27" id="Xcq-bR-2fP"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -351,7 +346,6 @@
                         <outlet property="addressBarView" destination="cXV-7Q-osK" id="EJw-jQ-lYP"/>
                         <outlet property="backButton" destination="Lda-tK-T1e" id="9g6-fO-8VZ"/>
                         <outlet property="domainLabel" destination="WI7-oa-yHw" id="eYL-uS-pvB"/>
-                        <outlet property="favoriteButton" destination="urG-UW-sAl" id="eyw-uY-YYx"/>
                         <outlet property="forwardButton" destination="Pqx-tQ-Fu0" id="CoQ-WM-3ns"/>
                         <outlet property="progressView" destination="w6O-2A-0DM" id="dEE-fr-fCU"/>
                         <outlet property="reloadButton" destination="pOf-kF-Gzw" id="6gx-wS-dEs"/>
@@ -513,6 +507,5 @@
     <resources>
         <image name="Back" width="22" height="22"/>
         <image name="Forward" width="22" height="22"/>
-        <image name="StarDeactive" width="22" height="22"/>
     </resources>
 </document>
