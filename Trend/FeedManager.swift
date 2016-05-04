@@ -13,22 +13,46 @@ import SwiftyJSON
 import RealmSwift
 
 class FeedManager {
+    enum Error: ErrorType {
+        case OutOfRangeActiveLanguages
+    }
+    
     static let didFetchFeeds = "kazuhiro.hayash.Trend.didFetchFeed"
     static let didActivateLanaguages = "kazuhiro.hayash.Trend.didUpdateLanaguages"
     
     static let sharedInstance = FeedManager()
     
+    var realm = try! Realm()
+    
     var feeds = [Feed]()
     var totalInternalFeeds = [Feed]()
     
     func fetch(completion: ([Feed]) -> Void) {
+        let languages = Array(realm.objects(Language))
         request { [weak self] (feeds) in
-            dispatch_async(dispatch_get_main_queue(), {
+            dispatch_async(dispatch_get_main_queue(), { [weak self] in
                 
-                self?.totalInternalFeeds = feeds
+                let filterdFeeds = feeds.reduce([Feed]()) { (sum, feed) in
+                    if sum.contains(feed) {
+                        return sum
+                    } else {
+                        return sum + [feed]
+                    }
+                }
                 
-                let size = min(feeds.count, 10)
-                (0..<size).forEach { self?.totalInternalFeeds[$0].language.active = true }
+                filterdFeeds.forEach({ (feed) in
+                    if languages.contains({ feed.language.identifier == $0.identifier }) {
+                        feed.language.active = true
+                    }
+                })
+                
+                
+                
+                self?.totalInternalFeeds = filterdFeeds
+                if filterdFeeds.filter({ $0.language.active == true }).count == 0 {
+                    let size = min(filterdFeeds.count, 10)
+                    (0..<size).forEach { self?.totalInternalFeeds[$0].language.active = true }
+                }
                 self?.feeds = self?.totalInternalFeeds.filter({ $0.language.active == true }) ?? []
                 
                 completion(feeds)
@@ -37,13 +61,28 @@ class FeedManager {
         }
     }
     
-    func activate(index: Int) {
-        totalInternalFeeds[index].language.active = !totalInternalFeeds[index].language.active
+    func activate(index: Int) throws {
+        try! realm.write {
+            totalInternalFeeds[index].language.active = !totalInternalFeeds[index].language.active
+        }
         if totalInternalFeeds[index].language.active == false {
            totalInternalFeeds[index].items = []
         }
         
-        feeds = totalInternalFeeds.filter { $0.language.active == true }
+        let feeds = totalInternalFeeds.filter { $0.language.active == true }
+        guard (1...15) ~= feeds.count else {
+            try! realm.write {
+                totalInternalFeeds[index].language.active = !totalInternalFeeds[index].language.active
+            }
+            throw Error.OutOfRangeActiveLanguages
+        }
+        
+        let languages = feeds.map { $0.language }
+        try! realm.write {
+            realm.add(languages, update: true)
+        }
+        
+        self.feeds = feeds
         NSNotificationCenter.defaultCenter().postNotificationName(FeedManager.didActivateLanaguages, object: self, userInfo: nil)
     }
     

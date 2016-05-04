@@ -40,8 +40,18 @@ class LanguageTableTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        FeedManager.sharedInstance.activate(indexPath.row)
-        tableView.reloadData()
+        do {
+            try FeedManager.sharedInstance.activate(indexPath.row)
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        } catch FeedManager.Error.OutOfRangeActiveLanguages {
+            let alertController = UIAlertController(title: "エラー", message: "1〜15個の範囲で選択してください。", preferredStyle: .Alert)
+            alertController.addAction(UIAlertAction(title: "閉じる", style: UIAlertActionStyle.Cancel, handler: { (action) in }))
+            presentViewController(alertController, animated: true, completion: nil)
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        } catch {
+            print("some Error")
+        }
+        
     }
     
     /*

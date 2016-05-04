@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -115,7 +115,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="14I-Hu-l6T">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="organize" id="pWn-Rv-Mya"/>
                         <view key="titleView" contentMode="scaleToFill" id="Pis-cv-1TC">
                             <rect key="frame" x="252" y="5.5" width="96" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -215,16 +214,16 @@
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tok-mB-a9a">
                                             <rect key="frame" x="8" y="4" width="584" height="72.5"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-l3-QlK">
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-l3-QlK">
                                                     <rect key="frame" x="8" y="8" width="568" height="58"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="pkmital/tensorflow_tutorials" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvk-mE-SPv">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="pkmital/tensorflow_tutorials" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvk-mE-SPv">
                                                             <rect key="frame" x="0.0" y="0.0" width="212" height="20"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmV-qA-isU">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmV-qA-isU">
                                                             <rect key="frame" x="0.0" y="28" width="397" height="31"/>
                                                             <string key="text">From the basics to slightly more interesting applications of Tensorflow
 (Jupyter Notebook)</string>

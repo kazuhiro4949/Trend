@@ -11,7 +11,11 @@ import SWXMLHash
 import Alamofire
 import SwiftyJSON
 
-class Feed {
+func == (lsh: Feed, rsh: Feed) -> Bool {
+    return lsh.language == rsh.language
+}
+
+class Feed: Equatable {
     
     var language: Language
     var items: [Item]
