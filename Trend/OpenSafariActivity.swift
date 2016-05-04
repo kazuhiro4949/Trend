@@ -26,7 +26,7 @@ class OpenSafariActivity: UIActivity {
     }
     
     override func prepareWithActivityItems(activityItems: [AnyObject]) {
-        guard let url = activityItems.first?[1] as? NSURL else {
+        guard let data = activityItems.first as? [AnyObject], let url = data[1] as? NSURL else {
             return
         }
         

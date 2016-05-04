@@ -102,7 +102,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         super.didReceiveMemoryWarning()
     }
     
-    func handleTapRightBarButtonItem(sender: UIBarButtonItem) {
+    @IBAction func handleTapRightBarButtonItem(sender: UIBarButtonItem) {
         let title = item?.title ?? ""
         let link = item.flatMap { NSURL(string: $0.link) } ?? NSURL()
         let activityItem: [AnyObject] = [title, link]

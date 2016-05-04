@@ -339,7 +339,11 @@
                                 <constraint firstItem="WI7-oa-yHw" firstAttribute="centerY" secondItem="cXV-7Q-osK" secondAttribute="centerY" id="v6P-ue-3sk"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="SBS-pC-rIW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="SBS-pC-rIW">
+                            <connections>
+                                <action selector="handleTapRightBarButtonItem:" destination="fn3-mY-T27" id="lg3-n1-5yF"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addressBarView" destination="cXV-7Q-osK" id="EJw-jQ-lYP"/>
