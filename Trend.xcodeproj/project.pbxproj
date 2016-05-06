@@ -11,7 +11,7 @@
 		6E360EC51C5F9C7B009FA29A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E360EC41C5F9C7B009FA29A /* AppDelegate.swift */; };
 		6E360EC71C5F9C7B009FA29A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E360EC61C5F9C7B009FA29A /* MasterViewController.swift */; };
 		6E360EC91C5F9C7B009FA29A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E360EC81C5F9C7B009FA29A /* DetailViewController.swift */; };
-		6E360ECC1C5F9C7B009FA29A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E360ECA1C5F9C7B009FA29A /* Main.storyboard */; };
+		6E360ECC1C5F9C7B009FA29A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E360ECA1C5F9C7B009FA29A /* Main.storyboard */; settings = {ASSET_TAGS = ("¡⁄", ); }; };
 		6E360ECE1C5F9C7B009FA29A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E360ECD1C5F9C7B009FA29A /* Assets.xcassets */; };
 		6E360ED11C5F9C7B009FA29A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E360ECF1C5F9C7B009FA29A /* LaunchScreen.storyboard */; };
 		6E360EDC1C5F9C7B009FA29A /* TrendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E360EDB1C5F9C7B009FA29A /* TrendTests.swift */; };
@@ -293,6 +293,9 @@
 		6E360EB91C5F9C7B009FA29A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					"¡⁄",
+				);
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Kazuhiro Hayashi";

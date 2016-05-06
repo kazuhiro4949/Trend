@@ -212,7 +212,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tok-mB-a9a">
-                                            <rect key="frame" x="8" y="4" width="584" height="72.5"/>
+                                            <rect key="frame" x="8" y="4" width="584" height="75"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-l3-QlK">
                                                     <rect key="frame" x="8" y="8" width="568" height="58"/>
@@ -251,7 +251,7 @@
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tok-mB-a9a" secondAttribute="bottom" constant="4" id="Tuq-qo-w8A"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="containerView" destination="tok-mB-a9a" id="dxh-4a-nCr"/>
                                     <outlet property="subtitleLabel" destination="QmV-qA-isU" id="Pe5-zz-nNM"/>

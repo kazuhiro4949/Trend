@@ -25,7 +25,7 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
         }
 
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: "refreshControlStateChanged:", forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(RepositoryTableViewController.refreshControlStateChanged(_:)), forControlEvents: .ValueChanged)
         self.refreshControl = refreshControl
     }
     
@@ -72,6 +72,10 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
         return dataSource?.items.count ?? 0
     }
 
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = .clearColor()
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RepositoryTableViewCell", forIndexPath: indexPath) as! RepositoryTableViewCell
         cell.titleLabel.text = dataSource?.items[indexPath.row].title
@@ -83,6 +87,8 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
         guard let item = dataSource?.items[indexPath.row] else { return }
         let vc = WebViewController.instantiate(item)
         let nvc = UINavigationController(rootViewController: vc)
+        vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+        vc.navigationItem.leftItemsSupplementBackButton = true
         showDetailViewController(nvc, sender: self)
     }
 
