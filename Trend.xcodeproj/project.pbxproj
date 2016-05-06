@@ -586,10 +586,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kazuhiro.hayashi.Trend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d778576-66a5-408c-af52-8f185a2f3192";
+				PROVISIONING_PROFILE = "87709c9a-cca6-4fac-a43c-4f7848244598";
 				SWIFT_OBJC_BRIDGING_HEADER = "Trend/Trend-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -605,9 +605,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kazuhiro.hayashi.Trend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d778576-66a5-408c-af52-8f185a2f3192";
+				PROVISIONING_PROFILE = "87709c9a-cca6-4fac-a43c-4f7848244598";
 				SWIFT_OBJC_BRIDGING_HEADER = "Trend/Trend-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

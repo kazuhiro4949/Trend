@@ -107,6 +107,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         let link = item.flatMap { NSURL(string: $0.link) } ?? NSURL()
         let activityItem: [AnyObject] = [title, link]
         let activityVc = UIActivityViewController(activityItems: [activityItem], applicationActivities: [OpenSafariActivity()])
+        activityVc.popoverPresentationController?.barButtonItem = sender
+        
         presentViewController(activityVc, animated: true, completion: nil)
     }
     
