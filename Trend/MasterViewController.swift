@@ -149,12 +149,12 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
         let direction :UIPageViewControllerNavigationDirection = currentIndex < index ? .Forward : .Reverse
         
         if let contentViewController = contentViewControllers[index] {
-             pageViewController?.setViewControllers([contentViewController], direction: direction, animated: true) { _ in }
+             pageViewController?.setViewControllers([contentViewController], direction: direction, animated: false) { _ in }
         } else {
             let vc = storyboard?.instantiateViewControllerWithIdentifier("RepositoryTableViewController") as! RepositoryTableViewController
             vc.index = index
             contentViewControllers[index] = vc
-            pageViewController?.setViewControllers([vc], direction: direction, animated: true) { _ in }
+            pageViewController?.setViewControllers([vc], direction: direction, animated: false) { _ in }
         }
 
     }

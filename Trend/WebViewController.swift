@@ -193,6 +193,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     }
     
     func webView(webView: WKWebView, didCommitNavigation navigation: WKNavigation!) {
+        
     }
     
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
@@ -213,9 +214,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     }
     
     deinit {
-        webView.scrollView.delegate = nil
         webView.stopLoading()
-        
+        webView.scrollView.delegate = nil
+        NetworkActivityIndicatorManager.sharedInstance.decrement()
         
         webView.removeObserver(self, forKeyPath: "estimatedProgress")
         webView.removeObserver(self, forKeyPath: "loading")

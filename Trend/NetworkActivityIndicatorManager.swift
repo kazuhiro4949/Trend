@@ -16,14 +16,14 @@ class NetworkActivityIndicatorManager {
     
     func increment() {
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
-            self?.activityCounter++
+            self?.activityCounter += 1
             UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         }
     }
     
     func decrement() {
         dispatch_async(dispatch_get_main_queue()) { [weak self] in
-            self?.activityCounter--
+            self?.activityCounter -= 1
             if let counter = self?.activityCounter where counter == 0 {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
