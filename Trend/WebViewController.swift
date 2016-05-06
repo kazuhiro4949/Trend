@@ -75,6 +75,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         addressBarView.layer.shadowOffset = CGSizeMake(0, 0.5)
         addressBarView.layer.shadowRadius = 0.5
         addressBarView.layer.shadowOpacity = 0.3
+
+        progressView.progress = 0.0
         
 //        switch FavoriteService(item: item).checkState() {
 //        case .Fav:
