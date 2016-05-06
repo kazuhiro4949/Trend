@@ -230,15 +230,12 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
                         self.progressView.alpha = 0
                     },
                     completion: { (finish) -> Void in
-                         self.progressView.progress = 0
+                         self.progressView.setProgress(0, animated: false)
                 })
             } else {
                 self.progressView.alpha = 1.0
             }
-            let progress = Float(webView.estimatedProgress)
-            UIView.animateWithDuration(1.0, animations: { () -> Void in
-                self.progressView.progress = progress
-            })
+            progressView.setProgress(Float(webView.estimatedProgress), animated: true)
         } else if keyPath == "canGoBack" {
             backButton.enabled = webView.canGoBack
         } else if keyPath == "canGoForward" {

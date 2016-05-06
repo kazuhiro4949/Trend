@@ -32,6 +32,7 @@ class MenuViewCell: UICollectionViewCell {
         }
     }
     
+    
     func focusCell(active: Bool, animated: Bool) {
         focusViewHeightConstraint.constant = active ? 3.0 : 0.0
         let color = active ? nameLabel.tintColor : UIColor.darkGrayColor()

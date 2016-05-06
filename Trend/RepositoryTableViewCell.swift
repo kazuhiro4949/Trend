@@ -40,6 +40,10 @@ class RepositoryTableViewCell: UITableViewCell {
 
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
+    
     override func setHighlighted(highlighted: Bool, animated: Bool) {
         if highlighted {
             containerView.backgroundColor = UIColor.color(0xcccccc)
