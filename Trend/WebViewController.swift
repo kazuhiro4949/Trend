@@ -209,7 +209,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     
     func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
         reloadButton.enabled = true
-
         NetworkActivityIndicatorManager.sharedInstance.decrement()
     }
     

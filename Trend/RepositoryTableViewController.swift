@@ -11,9 +11,13 @@ import UIKit
 class RepositoryTableViewController: UITableViewController, UINavigationControllerDelegate {
 
     var index: Int?
-    var loadingView: LoadingView?
+    lazy var loadingView: LoadingView = {
+       return UINib(nibName: "LoadingView", bundle: nil).instantiateWithOwner(self, options: nil)[0] as! LoadingView
+    }()
     
     var dataSource: Feed?
+    
+    var heights = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +33,8 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
         self.refreshControl = refreshControl
     }
     
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -40,7 +46,7 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
         if let items = dataSource?.items where items.isEmpty {
             dataSource?.fetch(.Daily) { [weak self] (items) in
                 self?.adjustInset()
-                self?.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+                self?.tableView.reloadData()
             }
         } else {
             adjustInset()
@@ -75,6 +81,7 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.backgroundColor = .clearColor()
     }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("RepositoryTableViewCell", forIndexPath: indexPath) as! RepositoryTableViewCell
@@ -91,7 +98,7 @@ class RepositoryTableViewController: UITableViewController, UINavigationControll
         vc.navigationItem.leftItemsSupplementBackButton = true
         showDetailViewController(nvc, sender: self)
     }
-
+    
     func refreshControlStateChanged(refreshControl: UIRefreshControl) {
         refreshControl.endRefreshing()
         dataSource?.fetch(.Daily) { [weak self] (items) in

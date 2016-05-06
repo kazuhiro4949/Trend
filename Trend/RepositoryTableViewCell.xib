@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RepositoryTableViewCell" rowHeight="110" id="hDb-ZS-w1u" customClass="RepositoryTableViewCell" customModule="Trend" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hDb-ZS-w1u" id="ObO-NT-TEO">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="109.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tuo-Rp-Jno">
+                        <rect key="frame" x="8" y="4" width="584" height="102"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Dt-0O-Zo2">
+                                <rect key="frame" x="16" y="8" width="552" height="86"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="pkmital/tensorflow_tutorials" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0W4-OR-hW7">
+                                        <rect key="frame" x="0.0" y="0.0" width="552" height="56"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDW-zD-hI0">
+                                        <rect key="frame" x="0.0" y="56" width="552" height="31"/>
+                                        <string key="text">From the basics to slightly more interesting applications of Tensorflow
+(Jupyter Notebook)</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="vDW-zD-hI0" secondAttribute="bottom" id="8sE-MD-zad"/>
+                                    <constraint firstItem="0W4-OR-hW7" firstAttribute="leading" secondItem="2Dt-0O-Zo2" secondAttribute="leading" id="Bhe-5H-kY5"/>
+                                    <constraint firstItem="0W4-OR-hW7" firstAttribute="top" secondItem="2Dt-0O-Zo2" secondAttribute="top" id="OGl-bx-LnA"/>
+                                    <constraint firstAttribute="trailing" secondItem="0W4-OR-hW7" secondAttribute="trailing" id="TvB-9I-cO8"/>
+                                    <constraint firstItem="vDW-zD-hI0" firstAttribute="leading" secondItem="2Dt-0O-Zo2" secondAttribute="leading" id="mjq-yd-Dor"/>
+                                    <constraint firstAttribute="trailing" secondItem="vDW-zD-hI0" secondAttribute="trailing" id="sLQ-uM-EBm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="2Dt-0O-Zo2" secondAttribute="bottom" constant="8" id="5MJ-b8-lWS"/>
+                            <constraint firstItem="2Dt-0O-Zo2" firstAttribute="leading" secondItem="tuo-Rp-Jno" secondAttribute="leading" constant="16" id="9b1-qH-qHq"/>
+                            <constraint firstAttribute="trailing" secondItem="2Dt-0O-Zo2" secondAttribute="trailing" constant="16" id="hCz-tt-BIs"/>
+                            <constraint firstItem="2Dt-0O-Zo2" firstAttribute="top" secondItem="tuo-Rp-Jno" secondAttribute="top" constant="8" id="sPz-UA-JQ9"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="tuo-Rp-Jno" firstAttribute="top" secondItem="ObO-NT-TEO" secondAttribute="top" constant="4" id="70M-Ah-966"/>
+                    <constraint firstAttribute="bottom" secondItem="tuo-Rp-Jno" secondAttribute="bottom" constant="4" id="LAH-rZ-DOI"/>
+                    <constraint firstItem="tuo-Rp-Jno" firstAttribute="leading" secondItem="ObO-NT-TEO" secondAttribute="leading" constant="8" id="pAc-8Y-T3S"/>
+                    <constraint firstAttribute="trailing" secondItem="tuo-Rp-Jno" secondAttribute="trailing" constant="8" id="pdB-Tx-1Fa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="containerView" destination="tuo-Rp-Jno" id="BW3-gu-hD5"/>
+                <outlet property="subtitleLabel" destination="vDW-zD-hI0" id="7x1-os-c32"/>
+                <outlet property="titleLabel" destination="0W4-OR-hW7" id="bp8-sw-wi5"/>
+            </connections>
+            <point key="canvasLocation" x="243" y="274"/>
+        </tableViewCell>
+    </objects>
+</document>

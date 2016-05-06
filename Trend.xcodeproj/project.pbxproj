@@ -37,6 +37,7 @@
 		6EAA05941C7988C00034ED36 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAA05931C7988C00034ED36 /* Favorite.swift */; };
 		6EC9EC061C6741570060387B /* ModalDrawBackAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9EC051C6741570060387B /* ModalDrawBackAnimator.swift */; };
 		6EC9EC081C67415F0060387B /* ModalDrawBackDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC9EC071C67415F0060387B /* ModalDrawBackDismissAnimator.swift */; };
+		6EFCA4FE1CDCEBB4007A9B1C /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EFCA4FD1CDCEBB4007A9B1C /* RepositoryTableViewCell.xib */; };
 		C51C7DEDCF9199A59D127606 /* Pods_Trend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD6FD214CE2FF627D4A44AAF /* Pods_Trend.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,10 +94,11 @@
 		6E99C9941C65C24A002E489B /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		6E99C9961C65C251002E489B /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		6E99C9981C65C26C002E489B /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		6E99C99A1C65CD3C002E489B /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		6E99C99A1C65CD3C002E489B /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Regex.swift; path = Trend/Regex.swift; sourceTree = "<group>"; };
 		6EAA05931C7988C00034ED36 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		6EC9EC051C6741570060387B /* ModalDrawBackAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDrawBackAnimator.swift; sourceTree = "<group>"; };
 		6EC9EC071C67415F0060387B /* ModalDrawBackDismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalDrawBackDismissAnimator.swift; sourceTree = "<group>"; };
+		6EFCA4FD1CDCEBB4007A9B1C /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		BD6FD214CE2FF627D4A44AAF /* Pods_Trend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 		6E360EB81C5F9C7B009FA29A = {
 			isa = PBXGroup;
 			children = (
+				6E99C99A1C65CD3C002E489B /* Regex.swift */,
 				6E360EC31C5F9C7B009FA29A /* Trend */,
 				6E360EDA1C5F9C7B009FA29A /* TrendTests */,
 				6E360EE51C5F9C7B009FA29A /* TrendUITests */,
@@ -151,7 +154,6 @@
 		6E360EC31C5F9C7B009FA29A /* Trend */ = {
 			isa = PBXGroup;
 			children = (
-				6E99C99A1C65CD3C002E489B /* Regex.swift */,
 				6E360EFC1C64E796009FA29A /* UIColor+Hex.swift */,
 				6E360EC41C5F9C7B009FA29A /* AppDelegate.swift */,
 				6E360EC61C5F9C7B009FA29A /* MasterViewController.swift */,
@@ -172,6 +174,7 @@
 				6E6858101C66544700F09CFF /* LoadingView.xib */,
 				6E99C9931C65C22E002E489B /* Model */,
 				6E360EF61C5F9D14009FA29A /* MenuViewCell.xib */,
+				6EFCA4FD1CDCEBB4007A9B1C /* RepositoryTableViewCell.xib */,
 				6E360ECA1C5F9C7B009FA29A /* Main.storyboard */,
 				6E360ECD1C5F9C7B009FA29A /* Assets.xcassets */,
 				6E360ECF1C5F9C7B009FA29A /* LaunchScreen.storyboard */,
@@ -341,6 +344,7 @@
 				6E360ED11C5F9C7B009FA29A /* LaunchScreen.storyboard in Resources */,
 				6E360EF91C5F9D14009FA29A /* MenuViewCell.xib in Resources */,
 				6E360ECE1C5F9C7B009FA29A /* Assets.xcassets in Resources */,
+				6EFCA4FE1CDCEBB4007A9B1C /* RepositoryTableViewCell.xib in Resources */,
 				6E360ECC1C5F9C7B009FA29A /* Main.storyboard in Resources */,
 				6E6858111C66544700F09CFF /* LoadingView.xib in Resources */,
 			);

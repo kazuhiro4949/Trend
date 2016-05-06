@@ -14,6 +14,11 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     
+    func configure(item: Item?) {
+        titleLabel.text = item?.title
+        subtitleLabel.text = item?.description
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.layer.masksToBounds = false
@@ -28,7 +33,6 @@ class RepositoryTableViewCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).CGPath
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

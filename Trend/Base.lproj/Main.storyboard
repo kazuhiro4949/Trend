@@ -34,7 +34,7 @@
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="mOI-FS-AaM">
@@ -211,20 +211,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tok-mB-a9a">
-                                            <rect key="frame" x="8" y="4" width="584" height="75"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tok-mB-a9a">
+                                            <rect key="frame" x="8" y="4" width="584" height="102"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cKw-l3-QlK">
-                                                    <rect key="frame" x="8" y="8" width="568" height="58"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FxL-G5-00I">
+                                                    <rect key="frame" x="16" y="8" width="552" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="pkmital/tensorflow_tutorials" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvk-mE-SPv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="212" height="20"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="pkmital/tensorflow_tutorials" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvk-mE-SPv">
+                                                            <rect key="frame" x="0.0" y="0.0" width="552" height="20"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmV-qA-isU">
-                                                            <rect key="frame" x="0.0" y="28" width="397" height="31"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmV-qA-isU">
+                                                            <rect key="frame" x="0.0" y="20" width="552" height="31"/>
                                                             <string key="text">From the basics to slightly more interesting applications of Tensorflow
 (Jupyter Notebook)</string>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -232,14 +232,22 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="QmV-qA-isU" secondAttribute="trailing" id="1GQ-3g-4a2"/>
+                                                        <constraint firstAttribute="bottom" secondItem="QmV-qA-isU" secondAttribute="bottom" id="gdB-En-nQc"/>
+                                                        <constraint firstItem="QmV-qA-isU" firstAttribute="leading" secondItem="FxL-G5-00I" secondAttribute="leading" id="j0V-mY-Dqt"/>
+                                                        <constraint firstItem="vvk-mE-SPv" firstAttribute="leading" secondItem="FxL-G5-00I" secondAttribute="leading" id="nOW-pL-imE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="vvk-mE-SPv" secondAttribute="trailing" id="qG4-P3-BzW"/>
+                                                        <constraint firstItem="vvk-mE-SPv" firstAttribute="top" secondItem="FxL-G5-00I" secondAttribute="top" id="xdm-VC-rNa"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="cKw-l3-QlK" firstAttribute="top" secondItem="tok-mB-a9a" secondAttribute="top" constant="8" id="7FO-pZ-Tdv"/>
-                                                <constraint firstAttribute="trailing" secondItem="cKw-l3-QlK" secondAttribute="trailing" constant="8" id="e6E-iC-Fie"/>
-                                                <constraint firstAttribute="bottom" secondItem="cKw-l3-QlK" secondAttribute="bottom" constant="8" id="jEH-xi-aW0"/>
-                                                <constraint firstItem="cKw-l3-QlK" firstAttribute="leading" secondItem="tok-mB-a9a" secondAttribute="leading" constant="8" id="m5i-zP-3Sr"/>
+                                                <constraint firstItem="FxL-G5-00I" firstAttribute="top" secondItem="tok-mB-a9a" secondAttribute="top" constant="8" id="2yz-ss-nWm"/>
+                                                <constraint firstAttribute="trailing" secondItem="FxL-G5-00I" secondAttribute="trailing" constant="16" id="Apz-BG-4Yq"/>
+                                                <constraint firstItem="FxL-G5-00I" firstAttribute="leading" secondItem="tok-mB-a9a" secondAttribute="leading" constant="16" id="HuM-4X-qcf"/>
+                                                <constraint firstAttribute="bottom" secondItem="FxL-G5-00I" secondAttribute="bottom" constant="8" id="SPS-EH-Knx"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -251,7 +259,7 @@
                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tok-mB-a9a" secondAttribute="bottom" constant="4" id="Tuq-qo-w8A"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="containerView" destination="tok-mB-a9a" id="dxh-4a-nCr"/>
                                     <outlet property="subtitleLabel" destination="QmV-qA-isU" id="Pe5-zz-nNM"/>
@@ -324,8 +332,8 @@
                             <rect key="frame" x="20" y="8" width="524" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="WI7-oa-yHw">
-                                    <rect key="frame" x="190" y="7" width="324" height="14.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="WI7-oa-yHw">
+                                    <rect key="frame" x="10" y="7" width="504" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
