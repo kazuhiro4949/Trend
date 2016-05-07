@@ -8,13 +8,11 @@
 
 import Foundation
 
-infix operator =~ {}
-
-func =~ (input: String, pattern: String) -> Bool {
-    return Regex(input).test(pattern)
+func ~= (pattern: Regex, value: String)  -> Bool {
+    return pattern.test(value)
 }
 
-class Regex {
+class Regex: StringLiteralConvertible {
     let internalExpression: NSRegularExpression
     let pattern: String
     
@@ -41,4 +39,23 @@ class Regex {
         }
         return nil
     }
+    
+    required init(stringLiteral value: StringLiteralType) {
+        self.pattern = value
+        let result = try? NSRegularExpression(pattern: value, options: [.CaseInsensitive, .DotMatchesLineSeparators, .AnchorsMatchLines])
+        self.internalExpression = result ?? NSRegularExpression()
+    }
+    
+    required init(extendedGraphemeClusterLiteral value: StringLiteralType) {
+        self.pattern = value
+        let result = try? NSRegularExpression(pattern: value, options: [.CaseInsensitive, .DotMatchesLineSeparators, .AnchorsMatchLines])
+        self.internalExpression = result ?? NSRegularExpression()
+    }
+    
+    required init(unicodeScalarLiteral value: StringLiteralType) {
+        self.pattern = value
+        let result = try? NSRegularExpression(pattern: value, options: [.CaseInsensitive, .DotMatchesLineSeparators, .AnchorsMatchLines])
+        self.internalExpression = result ?? NSRegularExpression()
+    }
+    
 }
