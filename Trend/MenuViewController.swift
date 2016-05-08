@@ -86,7 +86,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let nextCell = collectionView.cellForItemAtIndexPath(indexPath) as? MenuViewCell {
             nextCell.focusCell(true, animated: true)
             collectionView.setContentOffset(nextCell.frame.origin, animated: true)
-
         }
         selectedIndex = indexPath.row
         collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .CenteredHorizontally, animated: true)

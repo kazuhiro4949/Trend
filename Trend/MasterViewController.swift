@@ -39,8 +39,8 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
                 self?.contentViewControllers[0] = tableVc
                 self?.pageViewController?.setViewControllers([tableVc], direction: .Forward, animated: false) { _ in }
                 
+//                self?.menuViewController?.selectMenu(at: 0, animated: true)
                 self?.menuViewController?.collectionView?.reloadData()
-                self?.menuViewController?.selectMenu(at: 0, animated: true)
         }
         
     }
