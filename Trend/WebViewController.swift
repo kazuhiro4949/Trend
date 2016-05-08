@@ -37,6 +37,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
     class func instantiate(item: Item) -> WebViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("WebViewController") as! WebViewController
         vc.item = item
+        
         return vc
     }
     
@@ -44,6 +45,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         super.viewDidLoad()
         guard let item = item else { return }
         
+        HistoryService(item: item).add()
         let url = NSURL(string: item.link)
         view.insertSubview(webView, atIndex: 0)
         view.addConstraints([

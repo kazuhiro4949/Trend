@@ -160,7 +160,23 @@ class MasterViewController: UIViewController, UIPageViewControllerDelegate, UIPa
     }
     
     @IBAction func unwind(segue: UIStoryboardSegue) {
-        
+        if let vc = segue.sourceViewController as? FavoriteTableViewController,
+        let indexPath = vc.tableView.indexPathForSelectedRow {
+            
+            let vc = WebViewController.instantiate(Item(favorite: FavoriteService.all()[indexPath.row]))
+            let nvc = UINavigationController(rootViewController: vc)
+            vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+            vc.navigationItem.leftItemsSupplementBackButton = true
+            showDetailViewController(nvc, sender: self)
+        } else if let vc = segue.sourceViewController as? HistoryTableViewController,
+            let indexPath = vc.tableView.indexPathForSelectedRow {
+            
+            let vc = WebViewController.instantiate(Item(history: HistoryService.all()[indexPath.row]))
+            let nvc = UINavigationController(rootViewController: vc)
+            vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+            vc.navigationItem.leftItemsSupplementBackButton = true
+            showDetailViewController(nvc, sender: self)
+        }
     }
 }
 

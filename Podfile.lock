@@ -1,26 +1,32 @@
 PODS:
-  - Alamofire (3.0.0)
-  - Himotoki (1.4.0)
-  - Realm (0.98.2):
-    - Realm/Headers (= 0.98.2)
-  - Realm/Headers (0.98.2)
-  - RealmSwift (0.98.2):
-    - Realm (= 0.98.2)
+  - Alamofire (3.3.1)
+  - Himotoki (1.7.0)
+  - MMMarkdown (0.5.4)
+  - Realm (0.101.0):
+    - Realm/Headers (= 0.101.0)
+  - Realm/Headers (0.101.0)
+  - RealmSwift (0.101.0):
+    - Realm (= 0.101.0)
+  - SwiftDate (3.0.8)
   - SwiftyJSON (2.3.2)
   - SWXMLHash (2.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - Himotoki (~> 1.3)
+  - MMMarkdown
   - RealmSwift
+  - SwiftDate
   - SwiftyJSON
   - SWXMLHash (~> 2.1.0)
 
 SPEC CHECKSUMS:
-  Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
-  Himotoki: e342361bf39e8db8fc1d80cba5644d40ff01324e
-  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
-  RealmSwift: 9907c7415b3e19ef2ab9f89878fc890f03f93aea
+  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Himotoki: a97b4a5861d6d25fc0746f0e19164eef03c19347
+  MMMarkdown: 754f9154136d224178f51f2b2ba67a66a89d96ea
+  Realm: b21596d6d7e1c054f6fae967d27263d2593ca309
+  RealmSwift: 5247501bcd68b9db3a718cba808e1ce45ba67034
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   SWXMLHash: 7257a358b3ab2f7a209e0b4e4cf552e8b6df5f0f
 

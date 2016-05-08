@@ -9,13 +9,18 @@ target 'Trend' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'RealmSwift'
+  pod 'SwiftDate'
+  pod 'MMMarkdown'
 end
 
 target 'TrendTests' do
-
 end
 
 target 'TrendUITests' do
 
 end
 
+post_install do | installer |
+  require 'fileutils'
+  FileUtils.cp_r('Pods/Target Support Files/Pods-Trend/Pods-Trend-Acknowledgements.markdown', 'Acknowledgements.markdown', :remove_destination => true)
+end

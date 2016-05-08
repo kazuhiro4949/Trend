@@ -13,4 +13,26 @@ struct Item {
     let link: String
     let description: String
     let date: String
+    
+    init(favorite: Favorite) {
+        title = favorite.title
+        link = favorite.link
+        description = favorite.desc
+        date = ""
+    }
+    
+    init(history: History) {
+        title = history.title
+        link = history.link
+        description = history.desc
+        date = ""
+    }
+    
+    
+    init(title: String, link: String, description: String, date: String) {
+        self.title = title
+        self.link = link
+        self.description = description
+        self.date = date
+    }
 }

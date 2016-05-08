@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '85E19C62925FAAE06515812A'
+               BlueprintIdentifier = '5F85C26C1D468EEA3C24479B'
                BlueprintName = 'Himotoki'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Himotoki.framework'>

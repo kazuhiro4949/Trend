@@ -86,16 +86,20 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Trend/Alamofire.framework"
   install_framework "Pods-Trend/Himotoki.framework"
+  install_framework "Pods-Trend/MMMarkdown.framework"
   install_framework "Pods-Trend/Realm.framework"
   install_framework "Pods-Trend/RealmSwift.framework"
   install_framework "Pods-Trend/SWXMLHash.framework"
+  install_framework "Pods-Trend/SwiftDate.framework"
   install_framework "Pods-Trend/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Trend/Alamofire.framework"
   install_framework "Pods-Trend/Himotoki.framework"
+  install_framework "Pods-Trend/MMMarkdown.framework"
   install_framework "Pods-Trend/Realm.framework"
   install_framework "Pods-Trend/RealmSwift.framework"
   install_framework "Pods-Trend/SWXMLHash.framework"
+  install_framework "Pods-Trend/SwiftDate.framework"
   install_framework "Pods-Trend/SwiftyJSON.framework"
 fi
