@@ -34,7 +34,25 @@
                     <view key="view" contentMode="scaleToFill" id="svH-Pt-448">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tpg-Hm-dOR">
+                                <rect key="frame" x="215.5" y="281.5" width="170" height="36"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Github Trend">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="0.14938766891891891" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="30" name="AppleSDGothicNeo-SemiBold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tpg-Hm-dOR" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="3PL-PQ-5KZ"/>
+                            <constraint firstItem="Tpg-Hm-dOR" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="eyr-V8-Jcn"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="mOI-FS-AaM">
@@ -321,7 +339,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="w6O-2A-0DM" firstAttribute="leading" secondItem="MH3-kP-Itb" secondAttribute="leading" id="9dV-e8-LyM"/>
                             <constraint firstItem="Ora-xD-uLX" firstAttribute="top" secondItem="MoB-bT-BFf" secondAttribute="bottom" id="FCf-rx-Vdj"/>

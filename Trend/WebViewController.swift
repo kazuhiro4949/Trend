@@ -30,6 +30,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, UIScrollViewDel
         let webView = WKWebView()
         webView.allowsBackForwardNavigationGestures = true
         webView.translatesAutoresizingMaskIntoConstraints = false
+        webView.scrollView.backgroundColor = UIColor.groupTableViewBackgroundColor()
         return webView
     }()
     
